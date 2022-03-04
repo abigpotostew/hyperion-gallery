@@ -1,4 +1,4 @@
-import { Card, Col } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 export const Token = ({tokenId}:{tokenId:string})=>{
 

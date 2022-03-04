@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
 import { Token } from "./token";
-function splitArrayIntoChunksOfLen(arr, len) {
+function splitArrayIntoChunksOfLen(arr:any[], len:number) {
   var chunks = [], i = 0, n = arr.length;
   while (i < n) {
     chunks.push(arr.slice(i, i += len));
