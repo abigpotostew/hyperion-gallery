@@ -1,7 +1,7 @@
-import { windowKeplr } from "./keplr-client";
+import { Window } from "@keplr-wallet/types/build/window";
 
 const defaultBech32Config = (
-  mainPrefix:string,
+  mainPrefix: string,
   validatorPrefix = "val",
   consensusPrefix = "cons",
   publicPrefix = "pub",
@@ -65,6 +65,7 @@ const testnetConfig = {
 
 const addTestnetToKeplr = async () => {
   let client;
+  const windowKeplr = (<Window>window);
   if (windowKeplr.keplr) {
     try {
       await windowKeplr.keplr.enable(testnetConfig.chainId);

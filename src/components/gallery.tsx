@@ -1,7 +1,6 @@
 import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
 import { Token } from "./token";
-import './gallery.css';
 
 function splitArrayIntoChunksOfLen(arr:any[], len:number) {
   var chunks = [], i = 0, n = arr.length;

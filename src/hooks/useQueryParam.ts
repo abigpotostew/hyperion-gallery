@@ -10,27 +10,36 @@
  * URL, probably best to use runtime validation with a type predicate:
  * https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
  */
-import { NavigateOptions } from "react-router";
-import { useSearchParams } from "react-router-dom";
 import { useCallback, useMemo } from "react";
+import { useRouter } from "next/router";
 
 export function useQueryParam(
   key: string
-): [string | undefined, (newQuery: string, options?: NavigateOptions) => void] {
-  let [searchParams, setSearchParams] = useSearchParams();
-  let paramValue = searchParams.get(key) || undefined;
+): [string | undefined, (newQuery: string) => void] {
+
+  const router = useRouter()
+  const queryValue = router.query[key];
+  let paramValue: string | undefined;
+  if (queryValue === undefined || typeof queryValue === 'string') {
+    paramValue = queryValue
+  } else {
+    paramValue = queryValue.join('');
+  }
 
   let value = useMemo(() => paramValue, [paramValue]);
-
   let setValue = useCallback(
-    (newValue: string, options?: NavigateOptions) => {
-      let newSearchParams = new URLSearchParams(searchParams);
-      // @ts-ignore
-      newSearchParams.set(key, newValue);
-      setSearchParams(newSearchParams, options);
+    (newValue: string) => {
+      if (!router.isReady) {
+        return;
+      }
+      router.query[key] = newValue
+      router.push(router)
     },
-    [key, searchParams, setSearchParams]
+    [key, router]
   );
+
+  if (!router.isReady) return [undefined, () => {
+  }]
 
   return [value, setValue];
 }

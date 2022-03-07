@@ -1,9 +1,8 @@
 import Container from "react-bootstrap/Container";
 import { useEffect, useState } from "react";
 import { Gallery } from "./gallery";
-import { useAccounts, useQueryContract } from "../hooks/useQueryContract";
+import { useQueryContract } from "../hooks/useQueryContract";
 import { Button, Col, Row } from "react-bootstrap";
-import { AccountData } from "@cosmjs/proto-signing";
 import { useQueryParam } from "../hooks/useQueryParam";
 import { copyTextToClipboard } from "../utils/clipboard";
 import { Clipboard } from "./clipboard";
@@ -23,16 +22,15 @@ export const Wallet = () => {
       let account = accountQueryParam;
       setAccountQueryParam(account);
       console.log(account)
-      const balance = await queryClient.getBalance(account);
-      console.log(account, 'account balance:', balance);
+      // const balance = await queryClient.getBalance(account);
+      // console.log(account, 'account balance:', balance);
 
       const ownedTokens = await queryClient.getAllOwnedTokens(account)
       console.log(account, 'owned tokens:', ownedTokens);
       setTokenIds(ownedTokens)
 
     })()
-
-  }, [queryClient, accountQueryParam])
+  }, [queryClient, accountQueryParam, setAccountQueryParam])
 
   const onConnectKeplr = async ()=>{
     if (!queryClient ) {

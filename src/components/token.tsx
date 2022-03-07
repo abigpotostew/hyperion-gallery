@@ -1,6 +1,5 @@
+import Link from "next/link";
 import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import './token.css';
 
 export const tokenDetails = (tokenId:string)=>{
   return {
@@ -17,17 +16,19 @@ export const Token = ({tokenId}:{tokenId:string})=>{
   const token = tokenDetails(tokenId);
 
   return (
-          <Card className="text-center" border="light">
-            <Card.Img variant="top" src={token.thumbnail} />
-            <Card.Body>
-              <Card.Title>#{tokenId}</Card.Title>
-              <Card.Text>
-                <Link to={`/token?id=${tokenId}`} className={'Token-link'} >Details</Link> |{" "}
-                <a href={token.imageUrl4k} className={'Token-link'} >Image</a> |{" "}
-                <a href={token.live} className={'Token-link'} >Live</a>
-              </Card.Text>
-            </Card.Body>
-          </Card>
+    <Card className="text-center" border="light">
+      <Card.Img variant="top" src={token.thumbnail} />
+      <Card.Body>
+        <Card.Title>#{tokenId}</Card.Title>
+        <Card.Text>
+          <Link href={`/token/?id=${encodeURIComponent(tokenId)}`}>
+            <a className={'Token-link'}>Details</a>
+          </Link> |{" "}
+          <a href={token.imageUrl4k} className={'Token-link'}>Image</a> |{" "}
+          <a href={token.live} className={'Token-link'}>Live</a>
+        </Card.Text>
+      </Card.Body>
+    </Card>
 
   )
 }

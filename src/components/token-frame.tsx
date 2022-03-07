@@ -5,7 +5,8 @@ export const TokenFrame = ({ tokenId, minHeight = 525 }: { tokenId: string; minH
             frameBorder={"0"}
             height={"100%"} sandbox={"allow-scripts"} src={`https://hyperion.stewart.codes/gen/${tokenId}/`}
             width={"100%"}
-            style={{ "minHeight": minHeight||525 }}></iframe>
+            style={{ "minHeight": minHeight||525 }}
+    title={'#'+tokenId}></iframe>
 
   )
 }

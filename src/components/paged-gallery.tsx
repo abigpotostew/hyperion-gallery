@@ -1,7 +1,6 @@
 import Container from "react-bootstrap/Container";
 import { Col, Pagination, Row } from "react-bootstrap";
 import { Token } from "./token";
-import './gallery.css';
 import { useQueryParam } from "../hooks/useQueryParam";
 import { useEffect, useMemo, useState } from "react";
 import { Gallery } from "./gallery";

@@ -1,14 +1,11 @@
 import React from 'react';
-import logo from './banner.png';
-import './App.css';
-import { Link } from "react-router-dom";
 import { Header } from "./components/header";
 import { RandomToken } from "./components/random-token";
 import { AllMintedGallery } from "./components/all-minted-gallery";
 import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
 
-function App() {
+function HomePage() {
   return (
     <div className="App">
       <Header />
@@ -30,4 +27,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;

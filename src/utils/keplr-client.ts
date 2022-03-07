@@ -2,9 +2,7 @@ import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 import { Config } from "../config";
 import { addTestnetToKeplr } from "./keplr-testnet";
 import { Window } from "@keplr-wallet/types/build/window";
-import { GasPrice } from "@cosmjs/stargate";
 
-export const windowKeplr = (<Window>window);
 
 const client = async (config: Config) => {
   const prefix = "wasm";
@@ -19,12 +17,13 @@ const client = async (config: Config) => {
     if (config.testnet) {
       const testnet = await addTestnetToKeplr();
     } else {
+      const windowKeplr = (<Window>window);
       const chain = await windowKeplr.keplr?.enable(config.chainId);
     }
   };
 
   await checkChainOrTestnet();
-
+  const windowKeplr = (<Window>window);
   if (windowKeplr.getOfflineSignerAuto) {
     // Setup signer
     const offlineSigner = await windowKeplr.getOfflineSignerAuto(config.chainId);

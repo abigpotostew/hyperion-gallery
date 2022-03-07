@@ -1,9 +1,11 @@
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import './header.css'
+import Link from 'next/link'
 
 export const Header = () => {
-  return (<><Navbar bg="white" expand="lg">
+  return (<>
+
+    <Navbar bg="white" expand="lg">
     <Container>
 
           <Navbar.Brand href="/">
@@ -24,11 +26,13 @@ export const Header = () => {
       {/*<Navbar.Brand href="#home">Hyperion</Navbar.Brand>*/}
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
 
-        <Nav className="me-auto">
-          <Nav.Link href="/gallery">Gallery</Nav.Link>
-          <Nav.Link href="/wallet">My NFTs</Nav.Link>
-          <Nav.Link href="/about">About</Nav.Link>
-        </Nav>
+      <Nav className="me-auto">
+        <Link href="/gallery"><a className={'nav-link'}>Gallery</a></Link>
+      <Link href="/wallet"><a className={'nav-link'}>My NFTs</a></Link>
+        <Link href="/about"><a className={'nav-link'}>About</a></Link>
+      </Nav>
+
+
 
     </Container>
 

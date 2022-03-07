@@ -1,4 +1,3 @@
-import './page-title.css'
 
 export const PageTitle = ({children}:{children:any})=>{
 
