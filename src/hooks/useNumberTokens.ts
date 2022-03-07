@@ -9,7 +9,8 @@ export const useNumberTokens = () => {
     if (!queryClient) return;
     (async () => {
       const num = await queryClient.getNumberTokensTotal()
-      setNumTokens(num)
+      // setNumTokens(num)
+      setNumTokens(1024)
     })()
   }, [queryClient])
 

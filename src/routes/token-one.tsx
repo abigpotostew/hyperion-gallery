@@ -34,7 +34,7 @@ export default function TokenOne() {
     <main style={{ padding: "1rem 0" }}>
       <Container >
   {/*<PageTitle>Tokens</PageTitle>*/}
-      {tokenId && !loading && <TokenDetails tokenId={tokenId} />}
+        {numTokens&&tokenId && !loading && <TokenDetails tokenId={tokenId} numTokens={numTokens} />}
       {loading && <Loader />}
       {/*<Container fluid>*/}
   {/*    {tokenId && !loading && <TokenFrame tokenId={tokenId}/>}*/}

@@ -25,13 +25,16 @@ export const TokenTraits = ({ tokenId }: { tokenId: string }) => {
 
           // @ts-ignore
           const value = analysis[t.trait_type][t.value] as number
-          scoreSum +=(1-value)
           const percent = value * 100
           return {...t, percent:Math.round(percent*1000)/1000}
         }).sort((a,b) => b.percent - a.percent)
 
         setTraits(traitsWithPercent)
-        setScore(Math.floor(scoreSum/traits.length * 1024))
+        // @ts-ignore
+        const v = analysis.all[parseInt(tokenId)] as number
+        console.log(v)
+
+        setScore(v)
       } catch (e) {
         console.log(e)
         // @ts-ignore
