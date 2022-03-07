@@ -44,8 +44,10 @@ export default function AboutRoute() {
               </div>
               <hr/>
               <div>
+                <p>
                 <b>Team: </b>
                 Stewart Bracken
+                </p>
               </div>
             </Col>
             <Col/>

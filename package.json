@@ -6,7 +6,8 @@
     "start": "next",
     "build": "next build && next export",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+      "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@cosmjs/cosmwasm-stargate": "^0.27.1",
