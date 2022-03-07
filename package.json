@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "next",
-    "build": "next build && next export",
+    "build": "next build && next export && touch ./out/.nojekyll && echo 'www.hyperionnft.art' > ./out/CNAME",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d out"
