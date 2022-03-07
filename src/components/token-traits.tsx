@@ -20,7 +20,6 @@ export const TokenTraits = ({ tokenId }: { tokenId: string }) => {
         if (!md.ok) throw new Error(`${md.status} ${md.statusText}`)
       const mdJson =await md.json()
         const traits = mdJson.traits as {value:string;trait_type:string}[]
-        let scoreSum = 0;
         const traitsWithPercent =traits.map(t => {
 
           // @ts-ignore
@@ -32,7 +31,6 @@ export const TokenTraits = ({ tokenId }: { tokenId: string }) => {
         setTraits(traitsWithPercent)
         // @ts-ignore
         const v = analysis.all[parseInt(tokenId)] as number
-        console.log(v)
 
         setScore(v)
       } catch (e) {

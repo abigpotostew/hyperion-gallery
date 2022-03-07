@@ -1,4 +1,3 @@
-import { useQueryContract } from "../hooks/useQueryContract";
 import { useEffect, useState } from "react";
 import { TokenFrame } from "./token-frame";
 import { Col, Row } from "react-bootstrap";

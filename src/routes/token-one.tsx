@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
 import { Header } from "../components/header";
 import { TokenDetails } from "../components/token-details";
+import Head from "next/head";
 
 export default function TokenOne() {
   let [idQp, setIdQp] = useQueryParam('id');
@@ -30,6 +31,9 @@ export default function TokenOne() {
 
   return (
     <>
+      <Head>
+        <title>#{tokenId}</title>
+      </Head>
       <Header />
     <main style={{ padding: "1rem 0" }}>
       <Container >

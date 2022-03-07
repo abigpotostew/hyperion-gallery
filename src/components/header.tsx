@@ -9,16 +9,16 @@ export const Header = () => {
     <Container>
 
           <Navbar.Brand href="/">
-            {/*<img*/}
-            {/*  alt=""*/}
-            {/*  src="/logo.jpg"*/}
-            {/*  width="50"*/}
-            {/*  height="50"*/}
-            {/*  className="d-inline-block align-top"*/}
-            {/*/>{' '}*/}
-            <div className={'Header-title-container'}>
-            <h2 className={'Header-title'}>Hyperion</h2>
-              <h3 className={'Header-subtitle'}>on Stargaze</h3>
+            <img
+              alt=""
+              src="/hyperion-logo-square-small.svg"
+              width="50"
+              height="50"
+              className="d-inline-block align-top"
+            />{' '}
+            <div className={'d-inline-block Header-title-container'}>
+              <h2 className={'Header-title'}>Hyperion</h2>
+              <h3 className={'Header-subtitle'}>on Stargaze Testnet</h3>
             </div>
 
           </Navbar.Brand>

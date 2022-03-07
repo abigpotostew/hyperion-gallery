@@ -1,7 +1,6 @@
 import { Col, Container, Pagination, Row } from "react-bootstrap";
 import { TokenFrame } from "./token-frame";
 import { PageTitle } from "./page-title";
-import { tokenDetails } from "./token";
 import { TokenTraits } from "./token-traits";
 
 export const TokenDetails = ({tokenId,numTokens}:{tokenId: string;numTokens:number}) => {
