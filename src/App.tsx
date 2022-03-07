@@ -1,34 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './banner.png';
 import './App.css';
 import { Link } from "react-router-dom";
+import { Header } from "./components/header";
+import { RandomToken } from "./components/random-token";
+import { AllMintedGallery } from "./components/all-minted-gallery";
+import Container from "react-bootstrap/Container";
+import { Col, Row } from "react-bootstrap";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <nav
-          style={{
-            borderBottom: "solid 1px",
-            paddingBottom: "1rem",
-          }}
-        >
-          <Link to="/wallet">My NFTs</Link> |{" "}
-          <Link to="/token">Token</Link>
-        </nav>
-      </header>
+      <Header />
+      <Container fluid>
+        <Row>
+          <Col>
+      <RandomToken />
+          </Col>
+        </Row>
+        <br/>
+        <hr />
+        <Row>
+          <Col>
+      <AllMintedGallery />
+      </Col>
+    </Row>
+      </Container>
     </div>
   );
 }

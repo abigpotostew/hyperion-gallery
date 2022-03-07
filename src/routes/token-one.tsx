@@ -1,24 +1,55 @@
 import { useEffect, useState } from "react";
 import { Token } from "../components/token";
 import { TokenFrame } from "../components/token-frame";
+import { useQueryParam } from "../hooks/useQueryParam";
+import { useNumberTokens } from "../hooks/useNumberTokens";
+import { PageTitle } from "../components/page-title";
+import { Loader } from "../components/loader";
+import Container from "react-bootstrap/Container";
+import { Col, Row } from "react-bootstrap";
+import { Header } from "../components/header";
+import { TokenDetails } from "../components/token-details";
 
 export default function TokenOne() {
-  const [tokenId, setTokenId] = useState<string>('')
+  let [idQp, setIdQp] = useQueryParam('id');
+  const [tokenId, setTokenId] = useState<string|undefined>(undefined)
+  const [notFound, setNotFound] = useState<boolean>(false);
+  const {numTokens}= useNumberTokens()
+  const [loading, setLoading] = useState<boolean>(true);
+
   useEffect(()=>{
-    const query = new URLSearchParams(window.location.search)
-   if(query.get('token')){
-      const tokenId = parseInt(query.get('token')||'0')
-      if(tokenId>0&&tokenId<=1024){
-        setTokenId(tokenId.toString())
-      }
+    if(!numTokens || !idQp) return;
+    const id = parseInt(idQp);
+    if(id > 0 && id <= numTokens) {
+      setTokenId(id.toString());
+    } else {
+      setNotFound(true);
     }
-  },[])
+    setLoading(false);
+  },[idQp, numTokens])
 
   return (
+    <>
+      <Header />
     <main style={{ padding: "1rem 0" }}>
-  <h2>Tokens</h2>
-      {tokenId && <TokenFrame tokenId={tokenId}/>}
-      {tokenId && <Token tokenId={tokenId}/>}
+      <Container >
+  {/*<PageTitle>Tokens</PageTitle>*/}
+      {tokenId && !loading && <TokenDetails tokenId={tokenId} />}
+      {loading && <Loader />}
+      {/*<Container fluid>*/}
+  {/*    {tokenId && !loading && <TokenFrame tokenId={tokenId}/>}*/}
+  {/*      <Row>*/}
+
+  {/*      < Col />*/}
+  {/*      <Col>*/}
+  {/*    {tokenId && !loading && <Token tokenId={tokenId}/>}*/}
+  {/*    {!tokenId && !loading && <p>Not Found</p>}*/}
+  {/*    {loading && <Loader />}*/}
+  {/*      </Col>*/}
+  {/*    < Col />*/}
+  {/*      </Row>*/}
+      </Container>
   </main>
+    </>
 );
 }

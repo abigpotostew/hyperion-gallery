@@ -1,22 +1,16 @@
-import { Wallet } from "../components/wallet";
 import { Header } from "../components/header";
+import { AllMintedGallery } from "../components/all-minted-gallery";
 import Container from "react-bootstrap/Container";
-import { Row } from "react-bootstrap";
 import { PageTitle } from "../components/page-title";
 
-export default function WalletRoute() {
+export default function GalleryRoute() {
   return (
     <>
       <Header />
       <main style={{ padding: "1rem 0" }}>
         <Container>
-          {/*<Row>*/}
-
-          {/*</Row>*/}
-          {/*<Row>*/}
-          <PageTitle>My NFTs</PageTitle>
-          <Wallet />
-          {/*</Row>*/}
+        <PageTitle>Gallery</PageTitle>
+        <AllMintedGallery />
         </Container>
       </main>
     </>

@@ -6,7 +6,7 @@ import { GasPrice } from "@cosmjs/stargate";
 
 export const windowKeplr = (<Window>window);
 
-const client = async (config:Config) => {
+const client = async (config: Config) => {
   const prefix = "wasm";
   const gasPrice = null;
 
@@ -28,16 +28,18 @@ const client = async (config:Config) => {
   if (windowKeplr.getOfflineSignerAuto) {
     // Setup signer
     const offlineSigner = await windowKeplr.getOfflineSignerAuto(config.chainId);
-
     // Init SigningCosmWasmClient client
-    return await SigningCosmWasmClient.connectWithSigner(
-      config.rpcEndpoint,
+    return {
+      signer: await SigningCosmWasmClient.connectWithSigner(
+        config.rpcEndpoint,
+        offlineSigner,
+        {
+          prefix,
+          // gasPrice:new GasPrice(0),
+        }
+      ),
       offlineSigner,
-      {
-        prefix,
-        // gasPrice:new GasPrice(0),
-      }
-    );
+    };
   } else {
     throw Error("Keplr not available");
   }

@@ -10,16 +10,20 @@ import {
 import App from "./App";
 import TokenOne from "./routes/token-one";
 import WalletRoute from "./routes/wallet-route";
+import GalleryRoute from "./routes/gallery-route";
+import AboutRoute from "./routes/about-route";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="token" element={<TokenOne />} />
-        <Route path="wallet" element={<WalletRoute />} />
+        <Route path="/token" element={<TokenOne />} />
+        <Route path="/wallet" element={<WalletRoute />} />
+        <Route path="/gallery" element={<GalleryRoute />} />
+        <Route path="/about" element={<AboutRoute />} />
       </Routes>
-    </BrowserRouter>,
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

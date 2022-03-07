@@ -18,9 +18,6 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "types": [
-      "node_modules/@keplr-wallet/types"
-    ],
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true
   },
