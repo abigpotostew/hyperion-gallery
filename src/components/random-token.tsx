@@ -12,7 +12,7 @@ export const RandomToken = () => {
   const [tokenId, setTokenId] = useState<string>("0");
 
   const bp =  useBreakpoint()
-  const size = lteBreakpoint(bp, 'sm')?275:525
+  const size =!bp?275: lteBreakpoint(bp, 'sm')?275:525
 
   useEffect(() => {
     if (numTokens===undefined) return;

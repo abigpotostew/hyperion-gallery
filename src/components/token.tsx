@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 
 export const tokenDetails = (tokenId:string)=>{
   return {
-    live: `https://hyperion.stewart.codes/gen/${tokenId}/`,
+    live: `https://live.hyperionnft.art/id/${tokenId}/`,
     imageUrl: `https://ipfs.io/ipfs/bafybeiaqkwid7mhfocnrizk3rfwqjm6o2s2o6teewoyite3upmifqdjrye/${tokenId}.jpg`,
     imageUrl4k: `https://ipfs.io/ipfs/bafybeiaqkwid7mhfocnrizk3rfwqjm6o2s2o6teewoyite3upmifqdjrye/${tokenId}.png`,
     thumbnail: `https://hyperion-images-stargaze.s3.us-west-1.amazonaws.com/thumbs-300/${tokenId}.jpg`,
