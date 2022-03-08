@@ -14,7 +14,7 @@ export const AllMintedGallery = ()=>{
       <p>
         <b>{numTokens || 0}</b> of <b>1024</b> tokens have been minted.
       </p>
-      {numTokens?<PagedGallery totalNumTokens={numTokens} />:<p>Loading...</p>}
+      {numTokens!==undefined?<PagedGallery totalNumTokens={numTokens} />:<p>Loading...</p>}
     </Container>
   );
 

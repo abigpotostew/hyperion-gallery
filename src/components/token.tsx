@@ -21,7 +21,7 @@ export const Token = ({tokenId}:{tokenId:string})=>{
       <Card.Body>
         <Card.Title>#{tokenId}</Card.Title>
         <Card.Text>
-          <Link href={`/token/?id=${encodeURIComponent(tokenId)}`}>
+          <Link href={`/token/` } as={`/token/?id=${encodeURIComponent(tokenId)}`}>
             <a className={'Token-link'}>Details</a>
           </Link> |{" "}
           <a href={token.imageUrl4k} className={'Token-link'}>Image</a> |{" "}

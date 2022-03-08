@@ -11,7 +11,7 @@ export const RandomToken = () => {
   const [tokenId, setTokenId] = useState<string>("0");
 
   useEffect(() => {
-    if (!numTokens) return;
+    if (numTokens===undefined) return;
 
     (async () => {
       const num = numTokens

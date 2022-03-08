@@ -14,7 +14,7 @@ export const Gallery = ({ tokenIds }: { tokenIds: string[] }) => {
   return (
 <>
           {tokenIds.map((tokenId:string) => (
-            <Col xs={12} md={3} lg={3} key={tokenId} className={'Gallery-item'}>
+            <Col xs={12} md={6} lg={4} key={tokenId} className={'Gallery-item'}>
               <Token tokenId={tokenId} />
             </Col>
           ))}

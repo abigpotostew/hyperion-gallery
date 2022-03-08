@@ -21,12 +21,18 @@ export const TokenDetails = ({tokenId,numTokens}:{tokenId: string;numTokens:numb
       <Row>
         <Col/>
         <Col xs={12} md={7} lg={6}>
+          <div>
           <PageTitle >#{tokenId}</PageTitle>
+          </div>
+          <div>
           <Pagination>
             <Pagination.Prev disabled={(tokenId==='1')} onClick={() => backPage()}/>
             <Pagination.Next disabled={(tokenId===numTokens.toString())} onClick={() => forwardPage()}/>
           </Pagination>
+          </div>
+          <div>
         <TokenFrame minHeight={525} tokenId={tokenId}/>
+          </div>
         </Col>
 
         <Col/>
@@ -35,11 +41,7 @@ export const TokenDetails = ({tokenId,numTokens}:{tokenId: string;numTokens:numb
 
         <Col/>
         <Col sm={12} md={8} lg={5}>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+<hr />
           <TokenTraits tokenId={tokenId} />
         </Col>
 

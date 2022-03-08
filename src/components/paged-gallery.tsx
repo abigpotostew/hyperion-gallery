@@ -9,64 +9,67 @@ export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => 
   let [pageQp, setPageQp] = useQueryParam('page');
   const [page, setPage] = useState<number>(1)
   // const pageNum = parseInt(pageQp||'1')
-  const limit = 16;
+  const limit = 15;
 
   useEffect(() => {
-    setPage(parseInt(pageQp||'1'))
+    setPage(parseInt(pageQp || '1'))
   }, [pageQp])
 
   const pages = useMemo(() => {
     const pages = [];
     const end = Math.ceil(totalNumTokens / limit);
     for (let i = 0; i < end; i++) {
-      pages.push(i+1);
+      pages.push(i + 1);
     }
     return pages;
   }, [totalNumTokens]);
-  const lastPage = pages.length>0?pages[pages.length - 1]:1;
+  const lastPage = pages.length > 0 ? pages[pages.length - 1] : 1;
 
   const tokenIds = useMemo(() => {
     const tokenIds = [];
-    const from = (page-1)*limit+1;
+    const from = (page - 1) * limit + 1;
     const to = Math.min(from + limit - 1, totalNumTokens);
     for (let i = from; i <= to; i++) {
       tokenIds.push(i.toString());
     }
     return tokenIds;
-  }, [totalNumTokens,page]);
+  }, [totalNumTokens, page]);
 
   const changePage = (page: number) => {
-    setPageQp(Math.max(pages[0],Math.min(page,pages[pages.length-1])).toString());
+    setPageQp(Math.max(pages[0], Math.min(page, pages[pages.length - 1])).toString());
     // update whatever
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
+    console.log("scrolling")
   }
 
   return (
-    <Container >
+    <Container>
       <Row>
 
         {/*<Col />*/}
         {/*<Col>*/}
-      <Gallery tokenIds={tokenIds} />
+        <Gallery tokenIds={tokenIds}/>
         {/*</Col>*/}
         {/*<Col />*/}
       </Row>
       <Row>
-        <Col />
-        <Col >
-        <Pagination>
-          <Pagination.First disabled={(page===1)} onClick={() => changePage(1)} />
-          <Pagination.Prev disabled={(page===1)} onClick={() => changePage(page-1)}/>
-          {pages.map((pageN:number) => (
-            <Pagination.Item key={pageN} active={pageN === page} onClick={() => changePage(pageN)}>
-              {pageN}
-            </Pagination.Item>
-          ))}
-          <Pagination.Next disabled={(page===lastPage)} onClick={() => changePage(page+1)}/>
-          <Pagination.Last disabled={(page===lastPage)} onClick={() => changePage(pages[pages.length-1])}/>
-        </Pagination>
+        <Col/>
+        <Col>
+          <div className={'text-center'} style={{ margin: "0 auto", width: "50%" }}>
+            <Pagination>
+              <Pagination.First disabled={(page === 1)} onClick={() => changePage(1)}/>
+              <Pagination.Prev disabled={(page === 1)} onClick={() => changePage(page - 1)}/>
+              {pages.map((pageN: number) => (
+                <Pagination.Item key={pageN} active={pageN === page} onClick={() => changePage(pageN)}>
+                  {pageN}
+                </Pagination.Item>
+              ))}
+              <Pagination.Next disabled={(page === lastPage)} onClick={() => changePage(page + 1)}/>
+              <Pagination.Last disabled={(page === lastPage)} onClick={() => changePage(pages[pages.length - 1])}/>
+            </Pagination>
+          </div>
         </Col>
-        <Col />
+        <Col/>
       </Row>
     </Container>
     // <Container >

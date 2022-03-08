@@ -30,7 +30,7 @@ export const Wallet = () => {
       setTokenIds(ownedTokens)
 
     })()
-  }, [queryClient, accountQueryParam, setAccountQueryParam])
+  }, [queryClient, accountQueryParam])
 
   const onConnectKeplr = async ()=>{
     if (!queryClient ) {

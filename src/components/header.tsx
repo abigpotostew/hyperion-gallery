@@ -18,7 +18,7 @@ export const Header = () => {
             />{' '}
             <div className={'d-inline-block Header-title-container'}>
               <h2 className={'Header-title'}>Hyperion</h2>
-              <h3 className={'Header-subtitle'}>on Stargaze Testnet</h3>
+              <h3 className={'Header-subtitle'}>on Stargaze</h3>
             </div>
 
           </Navbar.Brand>

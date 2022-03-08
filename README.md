@@ -37,3 +37,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 # Options 
 https://swiperjs.com/demos
+
+- todo fix scroll up issue on wallet
+- fix the out of bounds issue on details page iframe (cannot click the fullscreen button)
