@@ -4,11 +4,15 @@ import { Col, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { Loader } from "./loader";
 import { useNumberTokens } from "../hooks/useNumberTokens";
+import useBreakpoint, { lteBreakpoint } from "../hooks/useBreakpoint";
 
 export const RandomToken = () => {
   const {numTokens}= useNumberTokens()
 
   const [tokenId, setTokenId] = useState<string>("0");
+
+  const bp =  useBreakpoint()
+  const size = lteBreakpoint(bp, 'sm')?275:525
 
   useEffect(() => {
     if (numTokens===undefined) return;
@@ -31,7 +35,7 @@ export const RandomToken = () => {
           <Row>
             <Col/>
             <Col xs={12} md={7} lg={6}>
-              <TokenFrame tokenId={tokenId}/>
+              <TokenFrame tokenId={tokenId} minHeight={size}/>
               <h6>Showing token {tokenId} of {numTokens}</h6>
             </Col>
             <Col/>

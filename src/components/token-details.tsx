@@ -2,6 +2,7 @@ import { Col, Container, Pagination, Row } from "react-bootstrap";
 import { TokenFrame } from "./token-frame";
 import { PageTitle } from "./page-title";
 import { TokenTraits } from "./token-traits";
+import useBreakpoint, { lteBreakpoint } from "../hooks/useBreakpoint";
 
 export const TokenDetails = ({tokenId,numTokens}:{tokenId: string;numTokens:number}) => {
 
@@ -16,6 +17,8 @@ export const TokenDetails = ({tokenId,numTokens}:{tokenId: string;numTokens:numb
     window.location.href = '/token?id='+(page+1);
   }
 
+  const bp =  useBreakpoint()
+  const size = lteBreakpoint(bp, 'sm')?275:525
   return (
     <Container  >
       <Row>
@@ -31,7 +34,7 @@ export const TokenDetails = ({tokenId,numTokens}:{tokenId: string;numTokens:numb
           </Pagination>
           </div>
           <div>
-        <TokenFrame minHeight={525} tokenId={tokenId}/>
+        <TokenFrame minHeight={size} tokenId={tokenId}/>
           </div>
         </Col>
 
