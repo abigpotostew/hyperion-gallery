@@ -6,12 +6,15 @@ import { Button, Col, Row } from "react-bootstrap";
 import { useQueryParam } from "../hooks/useQueryParam";
 import { copyTextToClipboard } from "../utils/clipboard";
 import { Clipboard } from "./clipboard";
+import { useNumberTokens } from "../hooks/useNumberTokens";
 
 export const Wallet = () => {
   const { queryClient } = useQueryContract()
   const [tokenIds, setTokenIds] = useState<string[]>([]);
   const [clipboardClasses,setClipboardClasses] = useState<string>('hidden');
   let [accountQueryParam, setAccountQueryParam] = useQueryParam('account');
+  
+  const {numTokens}= useNumberTokens()
 
   useEffect(() => {
     if (!queryClient || !accountQueryParam) {
@@ -20,7 +23,7 @@ export const Wallet = () => {
 
     (async () => {
       let account = accountQueryParam;
-      setAccountQueryParam(account);
+      // setAccountQueryParam(account);
       console.log(account)
       // const balance = await queryClient.getBalance(account);
       // console.log(account, 'account balance:', balance);
@@ -55,7 +58,8 @@ export const Wallet = () => {
     <Container >
       <Row>
         <Col xs={6} xxl={1}>
-          {!accountQueryParam?<Button variant="outline-secondary" onClick={onConnectKeplr}>Connect Keplr</Button>:null}
+          {!accountQueryParam?<Button variant="outline-secondary" onClick={onConnectKeplr} disabled={numTokens===0||numTokens===undefined}>Connect Keplr</Button>:null}
+          {(numTokens===0||numTokens===undefined) && <p>Disabled until Mint Day.</p>}
           {accountQueryParam?<Button variant="primary" onClick={onShare}>Share</Button>:null}
           <Clipboard width={32} classes={clipboardClasses} />
         </Col>

@@ -12,12 +12,18 @@ function HomePage() {
       <Header/>
       <Container fluid>
         <Row>
-          <Col>
+          <Col className={'section-homepage'}>
             <RandomToken/>
           </Col>
         </Row>
         <br/>
-        <hr/>
+        <Row >
+          <Col/>
+          <Col sm={11} md={10} lg={10} xl={10} xxl={10} className={'text-center'}>
+            <hr/>
+          </Col>
+          <Col/>
+        </Row>
         <Row>
           <Col>
             {/*<AllMintedGallery />*/}

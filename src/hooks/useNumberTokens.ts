@@ -8,10 +8,10 @@ export const useNumberTokens = () => {
   useEffect(() => {
     if (!queryClient) return;
     (async () => {
-      // if (Date.now() < 1647021600000) {
-      //   setNumTokens(0);
-      //   return
-      // }
+      if (Date.now() < 1647021600000) {
+        setNumTokens(0);
+        return
+      }
       const num = await queryClient.getNumberTokensTotal()
       setNumTokens(num)
       // setNumTokens(1024)

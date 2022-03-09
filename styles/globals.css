@@ -97,3 +97,14 @@ a.page-link{
   font-family: 'Karla', sans-serif;
 }
 
+
+.extra-large-logo{
+  font-size: 2.5rem;
+  font-family: 'Roboto Mono', monospace;
+  padding-top: 10px;
+}
+
+.section-homepage{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

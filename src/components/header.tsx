@@ -12,8 +12,8 @@ export const Header = () => {
           <img
             alt=""
             src="/hyperion-logo2.svg"
-            width="50"
-            height="50"
+            width="75"
+            height="70"
             className="d-inline-block align-top"
           />{' '}
           <div className={'d-inline-block Header-title-container'}>
