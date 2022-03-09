@@ -4,24 +4,33 @@ import { RandomToken } from "./components/random-token";
 import { AllMintedGallery } from "./components/all-minted-gallery";
 import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
+import { BrandedHomepage } from "./components/branded-homepage";
 
 function HomePage() {
   return (
     <div className="App">
-      <Header />
+      <Header/>
       <Container fluid>
         <Row>
           <Col>
-      <RandomToken />
+            <RandomToken/>
           </Col>
         </Row>
         <br/>
-        <hr />
+        <hr/>
         <Row>
           <Col>
-      <AllMintedGallery />
-      </Col>
-    </Row>
+            {/*<AllMintedGallery />*/}
+            <BrandedHomepage/>
+          </Col>
+        </Row>
+        <br/>
+        <hr/>
+        <Row>
+          <Col className={'text-center'}>
+            <p> Created with 💙 by skymagic.eth</p>
+          </Col>
+        </Row>
       </Container>
     </div>
   );

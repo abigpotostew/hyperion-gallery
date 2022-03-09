@@ -22,11 +22,11 @@ export default function AboutRoute() {
 
               <PageTitle>About</PageTitle>
               <div>
-                <p>Hyperion is a multidimensional exploration of complex movement in generative art, created entirely
-                  with code. It is inspired by the infinite resolution of movement— from atoms, to cells, to planetary
-                  maneuvers: every point in time is unique. Hyperion, too, captures spectrums of texture and color with
-                  mathematical precision rendered in real time. Collectors and viewers experience the NFT in motion,
-                  rendered in any resolution.</p>
+                {/*<p>Hyperion is a multidimensional exploration of complex movement in generative art, created entirely*/}
+                {/*  with code. It is inspired by the infinite resolution of movement— from atoms, to cells, to planetary*/}
+                {/*  maneuvers: every point in time is unique. Hyperion, too, captures spectrums of texture and color with*/}
+                {/*  mathematical precision rendered in real time. Collectors and viewers experience the NFT in motion,*/}
+                {/*  rendered in any resolution.</p>*/}
                 <p>Hyperion is a collection of 1024 unique NFTs each containing a 4K image render and a ‘live view’ real
                   time WebGL animation.</p>
                 <p><a href={'https://stewart.codes/static/hyperion-demo/'}>Live Demo</a></p>

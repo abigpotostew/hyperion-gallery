@@ -12,18 +12,16 @@ export const RandomToken = () => {
   const [tokenId, setTokenId] = useState<string>("0");
 
   const bp =  useBreakpoint()
-  const size =!bp?275: lteBreakpoint(bp, 'sm')?275:525
+  const size =(!bp?275: lteBreakpoint(bp, 'sm')?275:525)* 0.8
 
   useEffect(() => {
     if (numTokens===undefined) return;
 
     (async () => {
-      const num = numTokens
-
-      if (num === 0) {
+      if (numTokens === 0) {
         setTokenId("1")
       } else {
-        setTokenId((Math.floor(Math.random() * num) + 1).toString())
+        setTokenId((Math.floor(Math.random() * numTokens) + 1).toString())
       }
     })()
   }, [numTokens])
@@ -36,7 +34,7 @@ export const RandomToken = () => {
             <Col/>
             <Col xs={12} md={7} lg={6}>
               <TokenFrame tokenId={tokenId} minHeight={size}/>
-              <h6>Showing token {tokenId} of {numTokens}</h6>
+              <h6 className={'text-center'}>Showing token #{tokenId}</h6>
             </Col>
             <Col/>
           </Row>
