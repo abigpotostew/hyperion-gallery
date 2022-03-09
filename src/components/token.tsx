@@ -4,10 +4,11 @@ import { Card } from "react-bootstrap";
 export const tokenDetails = (tokenId:string)=>{
   return {
     live: `https://live.hyperionnft.art/id/${tokenId}/`,
-    imageUrl: `https://ipfs.io/ipfs/bafybeiaqkwid7mhfocnrizk3rfwqjm6o2s2o6teewoyite3upmifqdjrye/${tokenId}.jpg`,
-    imageUrl4k: `https://ipfs.io/ipfs/bafybeiaqkwid7mhfocnrizk3rfwqjm6o2s2o6teewoyite3upmifqdjrye/${tokenId}.png`,
+    imageUrl: `https://ipfs.io/ipfs/bafybeigqwoubjsr3jmxby6kjktqu3siob5fe5s5hdjwirxf3q4czmfhs3y/${tokenId}.jpg`,
+    imageUrl4k: `https://ipfs.io/ipfs/bafybeigqwoubjsr3jmxby6kjktqu3siob5fe5s5hdjwirxf3q4czmfhs3y/${tokenId}.png`,
     thumbnail: `https://hyperion-images-stargaze.s3.us-west-1.amazonaws.com/thumbs-300/${tokenId}.jpg`,
-    metadata: `https://ipfs.io/ipfs/bafybeiayug33vfrduvccjagfekrqp3qijru5qxtkb5q3gttkgd3uum4gxa/${tokenId}`,
+    metadata: `https://hyperion-images-stargaze.s3.us-west-1.amazonaws.com/metadata/${tokenId}.json`,
+    // metadata: `https://ipfs.io/ipfs/bafybeidnj2urojetktrmsw63gc55tu2vrrgyqiz4niyhqr2vpvex5bvy74/${tokenId}`,
   }
 }
 

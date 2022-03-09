@@ -53,7 +53,7 @@ export const TokenTraits = ({ tokenId }: { tokenId: string }) => {
               <tr>
                   <th>Trait Name</th>
                   <th>Value</th>
-                  <th>Percent</th>
+                  <th>Shared Trait Percent</th>
                 {/*{Array.from({ length: 2 }).map((_, index) => (*/}
                 {/*  <th key={index}>Table heading</th>*/}
                 {/*))}*/}
@@ -88,7 +88,7 @@ export const TokenTraits = ({ tokenId }: { tokenId: string }) => {
               </tbody>
               <tfoot>
               <tr>
-                  <td>Score</td>
+                  <td>Score (1024 is rarest)</td>
                   <td></td>
                   <td>{score}</td>
               </tr>
