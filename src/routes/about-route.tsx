@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
 import { PageTitle } from "../components/page-title";
 import Head  from "next/head";
+import { Footer } from "../components/footer";
+import React from "react";
 
 export default function AboutRoute() {
   return (
@@ -36,7 +38,7 @@ export default function AboutRoute() {
                   <b>FAQs:</b>
                   <ul>
                     <li>
-                      <b>Mint Price</b>: 350 $STARS
+                      <b>Mint Price</b>: 314 $STARS
                     </li>
                     <li>
                       <b>Mint Date</b>: March 11, 2022 around 4pm EST
@@ -48,7 +50,20 @@ export default function AboutRoute() {
                       <b>Utility</b>: Early entry to my upcoming generative art platform on Stargaze.
                     </li>
                     <li>
-                      <b>License</b>: <a href={'https://creativecommons.org/licenses/by/4.0/'}>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>
+                      <b>License</b>: <a href={'https://creativecommons.org/licenses/by/4.0/'}>Creative Commons Attribution 4.0 International (CC BY 4.0)</a>
+                      <p>
+                        You are free to:
+                        <ul>
+                          <li>
+                            Share — copy and redistribute the material in any medium or format    
+                          </li>
+                        <li>
+                          Adapt — remix, transform, and build upon the material
+                          for any purpose, even commercially.  
+                        </li>
+
+                        </ul>
+                      </p>
                     </li>
                     <li>
                       <b>Minimum requirements</b>: Live view works best on Chrome on a desktop or laptop computer with a dedicated graphics card.
@@ -77,7 +92,18 @@ export default function AboutRoute() {
               <div>
                 <p>
                 <b>Team: </b>
-                Stewart Bracken - <a href={'https://stewart.codes/about/'}>https://stewart.codes/about/</a>
+                  <ul>
+                    <li>
+                      Stewart Bracken aka <a href={'https://twitter.com/stewbracken'}>skymagic.eth</a> - <a href={'https://stewart.codes/about/'}>https://stewart.codes/about/</a>
+                    </li>
+                    <li>
+                      <a href={'https://twitter.com/ogcryptobeatz'}>nova</a>
+                    </li>
+                    <li>
+                      <a href={'https://twitter.com/3CPyuki'}>3CPyuki</a>
+                    </li>
+                  </ul>
+                
                 </p>
               </div>
             </Col>
@@ -85,6 +111,7 @@ export default function AboutRoute() {
           </Row>
         </Container>
       </main>
+      <Footer />
     </>
   );
 }

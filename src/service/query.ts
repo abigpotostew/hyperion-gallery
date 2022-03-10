@@ -23,6 +23,10 @@ export class QueryContract {
     return this.client.getBalance(address, 'ustars');
   }
 
+  async getTokenInfo(tokenId: string) {
+    return this.client.queryContractSmart(this.config.sg721, { nft_info: { token_id: tokenId } })
+  }
+
   async getAllOwnedTokens(address: string) {
     let allTokens: string[] = [];
 
@@ -44,7 +48,10 @@ export class QueryContract {
       allTokens.push(...page.tokens as string[]);
     }
 
-    return allTokens.map(t => parseInt(t)).sort().map(t => t.toString());
+    // const ints = allTokens.map(t => parseInt(t))
+    // const sortedInts = ints.sort((a, b) => a - b)
+    const all = allTokens.map(t => parseInt(t)).sort((a, b) => a - b).map(t => t.toString());
+    return all
   }
 
   // probably don't need this, it returns tokens in lexographic order

@@ -3,6 +3,8 @@ import { AllMintedGallery } from "../components/all-minted-gallery";
 import Container from "react-bootstrap/Container";
 import { PageTitle } from "../components/page-title";
 import Head from "next/head";
+import { Footer } from "../components/footer";
+import React from "react";
 
 export default function GalleryRoute() {
   return (
@@ -17,6 +19,7 @@ export default function GalleryRoute() {
         <AllMintedGallery />
         </Container>
       </main>
+      <Footer />
     </>
   );
 }

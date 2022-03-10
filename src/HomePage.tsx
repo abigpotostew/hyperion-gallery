@@ -5,6 +5,7 @@ import { AllMintedGallery } from "./components/all-minted-gallery";
 import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
 import { BrandedHomepage } from "./components/branded-homepage";
+import { Footer } from "./components/footer";
 
 function HomePage() {
   return (
@@ -16,7 +17,7 @@ function HomePage() {
             <RandomToken/>
           </Col>
         </Row>
-        <br/>
+        
         <Row >
           <Col/>
           <Col sm={11} md={10} lg={10} xl={10} xxl={10} className={'text-center'}>
@@ -30,14 +31,10 @@ function HomePage() {
             <BrandedHomepage/>
           </Col>
         </Row>
-        <br/>
-        <hr/>
-        <Row>
-          <Col className={'text-center'}>
-            <p> Created with 💙 by skymagic.eth</p>
-          </Col>
-        </Row>
+        
+        
       </Container>
+      <Footer />
     </div>
   );
 }

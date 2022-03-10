@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import { Row } from "react-bootstrap";
 import { PageTitle } from "../components/page-title";
 import Head from "next/head";
+import { Footer } from "../components/footer";
+import React from "react";
 
 export default function WalletRoute() {
   return (
@@ -23,6 +25,7 @@ export default function WalletRoute() {
           {/*</Row>*/}
         </Container>
       </main>
+      <Footer />
     </>
   );
 }

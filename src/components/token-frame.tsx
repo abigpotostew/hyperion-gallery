@@ -15,7 +15,7 @@ export const TokenFrame = ({ tokenId, minHeight = 275 }: { tokenId: string; minH
     }, 250);
   },[])
   return (
-    <iframe id={id} allow={"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; same-origin;"} allowFullScreen
+    <iframe id={id} allow={"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;"} allowFullScreen
             frameBorder={"0"}
             height={"100%"} sandbox={"allow-scripts"} src={token.live}
             width={"100%"}

@@ -7,6 +7,7 @@ export const tokenDetails = (tokenId:string)=>{
     imageUrl: `https://ipfs.io/ipfs/bafybeigqwoubjsr3jmxby6kjktqu3siob5fe5s5hdjwirxf3q4czmfhs3y/${tokenId}.jpg`,
     imageUrl4k: `https://ipfs.io/ipfs/bafybeigqwoubjsr3jmxby6kjktqu3siob5fe5s5hdjwirxf3q4czmfhs3y/${tokenId}.png`,
     thumbnail: `https://hyperion-images-stargaze.s3.us-west-1.amazonaws.com/thumbs-300/${tokenId}.jpg`,
+    thumbnail500: `https://hyperion-images-stargaze.s3.us-west-1.amazonaws.com/thumbs-500/${tokenId}.jpg`,
     metadata: `https://hyperion-images-stargaze.s3.us-west-1.amazonaws.com/metadata/${tokenId}.json`,
     // metadata: `https://ipfs.io/ipfs/bafybeidnj2urojetktrmsw63gc55tu2vrrgyqiz4niyhqr2vpvex5bvy74/${tokenId}`,
   }
@@ -18,7 +19,9 @@ export const Token = ({tokenId}:{tokenId:string})=>{
 
   return (
     <Card className="text-center" border="light">
-      <Card.Img variant="top" src={token.thumbnail} />
+      <Link href={`/token/` } as={`/token/?id=${encodeURIComponent(tokenId)}`}>
+        <a><Card.Img variant="top" src={token.thumbnail500} /></a>
+      </Link>
       <Card.Body>
         <Card.Title>#{tokenId}</Card.Title>
         <Card.Text>

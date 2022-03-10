@@ -24,6 +24,16 @@ export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => 
     return pages;
   }, [totalNumTokens]);
   const lastPage = pages.length > 0 ? pages[pages.length - 1] : 1;
+  
+  const pagesToRender = useMemo(() => {
+    const pagesToRender = [];
+    const start = Math.max(1, page - 2);
+    const end = Math.min(lastPage, page + 2);
+    for (let i = start; i <= end; i++) {
+      pagesToRender.push(i);
+    }
+    return { ellipsisStart:start>1 && pagesToRender.length,ellipsisEnd:end<lastPage, pagesToRender };
+  }, [page, lastPage]);
 
   const tokenIds = useMemo(() => {
     const tokenIds = [];
@@ -33,7 +43,7 @@ export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => 
       tokenIds.push(i.toString());
     }
     return tokenIds;
-  }, [totalNumTokens, page]);
+  }, [lastPage, page]);
 
   const changePage = (page: number) => {
     setPageQp(Math.max(pages[0], Math.min(page, pages[pages.length - 1])).toString());
@@ -59,11 +69,13 @@ export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => 
             <Pagination>
               <Pagination.First disabled={(page === 1)} onClick={() => changePage(1)}/>
               <Pagination.Prev disabled={(page === 1)} onClick={() => changePage(page - 1)}/>
-              {pages.map((pageN: number) => (
+              {pagesToRender.ellipsisStart && <Pagination.Ellipsis/>}
+              {pagesToRender.pagesToRender.map((pageN: number) => (
                 <Pagination.Item key={pageN} active={pageN === page} onClick={() => changePage(pageN)}>
                   {pageN}
                 </Pagination.Item>
               ))}
+              {pagesToRender.ellipsisEnd && <Pagination.Ellipsis/>}
               <Pagination.Next disabled={(page === lastPage)} onClick={() => changePage(page + 1)}/>
               <Pagination.Last disabled={(page === lastPage)} onClick={() => changePage(pages[pages.length - 1])}/>
             </Pagination>

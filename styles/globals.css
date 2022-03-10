@@ -106,5 +106,21 @@ a.page-link{
 
 .section-homepage{
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.footer-text{
+  font-size: 0.7rem;
+  font-family: 'Karla', sans-serif;
+}
+
+.shuffle-btn{
+  
+}
+
+.hover-blue {
+  transition: .5s ease;
+}
+.hover-blue:hover {
+  color: #0d6efd;
 }

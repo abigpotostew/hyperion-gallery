@@ -6,9 +6,10 @@ module.exports = {
         return {
             '/': { page: '/' },
             '/about': { page: '/about' },
-            '/wallet': { page: '/wallet' },
+            '/wallet': { page: '/wallet', query: { account: '...' } },
             '/gallery': { page: '/gallery' },
-            '/token': { page: '/token'},
+            '/token': { page: '/token', query: { id: '...' }},
+            '/share': { page: '/share', query: { account: '...' } },
         }
     },
     trailingSlash:true,

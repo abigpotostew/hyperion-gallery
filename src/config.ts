@@ -5,7 +5,7 @@ const configBase = {
     restEndpoint: "https://rest.big-bang-1.stargaze-apis.com/",
     chainId: "big-bang-1",
     // Custom values here
-    sg721: "stars1msfmkx4xmts3el3r46c2u2eehxkhahqzsa0crn0v58cncp7ztr7qrshkkh", // UPDATE ME to your testnet contract
+    sg721: "stars1dapmmd58y6fdpvz2zs433q59sxlg8aqyzqkxk0wv88enn8f6yqfqe78h90", // UPDATE ME to your testnet contract
     minter: "stars1944la2whlrumpc80nhghr75djrz8pmk3ddufktp9087spssq2rwqnp57my", // UPDATE ME to your testnet contract
     mintPriceStars: 350, // UPDATE ME to Your Mint Price
     totalNumMints: 1024, // UPDATE ME to Your total mints
@@ -24,7 +24,7 @@ const configBase = {
     restEndpoint: "",
     chainId: "stargaze-1",
     // Custom values here
-    sg721: "stars1msfmkx4xmts3el3r46c2u2eehxkhahqzsa0crn0v58cncp7ztr7qrshkkh", // UPDATE ME to your production contract
+    sg721: "stars1dapmmd58y6fdpvz2zs433q59sxlg8aqyzqkxk0wv88enn8f6yqfqe78h90", // UPDATE ME to your production contract
     minter: "stars1944la2whlrumpc80nhghr75djrz8pmk3ddufktp9087spssq2rwqnp57my", // UPDATE ME to your production contract
     mintPriceStars: 350, // UPDATE ME to Your Mint Price
     totalNumMints: 1024, // UPDATE ME to Your total mints

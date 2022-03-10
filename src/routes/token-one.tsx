@@ -12,6 +12,9 @@ import Head from "next/head";
 
 export default function TokenOne() {
   let [idQp, setIdQp] = useQueryParam('id');
+  if(idQp==='...'){
+    idQp = undefined;
+  }
   const [tokenId, setTokenId] = useState<string | undefined>(undefined)
   const [notFound, setNotFound] = useState<boolean>(false);
   const { numTokens } = useNumberTokens()

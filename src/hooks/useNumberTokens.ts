@@ -8,7 +8,7 @@ export const useNumberTokens = () => {
   useEffect(() => {
     if (!queryClient) return;
     (async () => {
-      if (Date.now() < 1647021600000) {
+      if (Date.now() < 1646985600000) {
         setNumTokens(0);
         return
       }
