@@ -79,12 +79,12 @@ export default function AboutRoute() {
                 <p>
                   <b>Roadmap:</b>
                   <ul>
-                    <li>March 11: Mint Day!</li>
-                    <li>Build in HTML NFT support into Stargaze platform. That means your existing Hyperion NFTs will
+                    <li><b>March 11</b>: Mint Day!</li>
+                    <li><b>March/April</b>: Build in HTML NFT support into Stargaze platform. That means your existing Hyperion NFTs will
                       render the Live view in the marketplace.
                     </li>
-                    <li>Build an artblocks style platform for Stargaze.</li>
-                    <li>Make more art :)</li>
+                    <li><b>March/April/May</b>: Build an artblocks style platform for Stargaze.</li>
+                    <li><b>∞</b>: Make more art :)</li>
                   </ul>
                 </p>
               </div>
