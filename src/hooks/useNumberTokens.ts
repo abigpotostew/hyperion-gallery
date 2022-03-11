@@ -9,10 +9,10 @@ export const useNumberTokens = () => {
   useEffect(() => {
     if (!queryClient) return;
     (async () => {
-      if (Date.now() < 1647027924000) {
-        setNumTokens(0);
-        return;
-      }
+      // if (Date.now() < 1647027924000) {
+      //   setNumTokens(0);
+      //   return;
+      // }
       if (config.soldOut) {
         setNumTokens(config.totalNumMints)
       } else {
