@@ -33,7 +33,6 @@ export const Wallet = () => {
         <Col xs={6} xxl={1}>
           <Button variant="outline-primary" onClick={onConnectKeplr}
                   disabled={numTokens === 0 || numTokens === undefined} style={{width:'150px'}}>Connect Keplr</Button>
-          {(numTokens === 0 || numTokens === undefined) && <p>Disabled until Mint Day.</p>}
           {keplrError && <p>Error connecting to Keplr. Is Keplr installed?</p>}
         </Col>
       </Row>
