@@ -1,32 +1,26 @@
 import Container from "react-bootstrap/Container";
-import { useEffect, useState } from "react";
-import { Gallery } from "./gallery";
+import { useState } from "react";
 import { useQueryContract } from "../hooks/useQueryContract";
 import { Button, Col, Row } from "react-bootstrap";
-import { useQueryParam } from "../hooks/useQueryParam";
-import { copyTextToClipboard } from "../utils/clipboard";
-import { Clipboard } from "./clipboard";
 import { useNumberTokens } from "../hooks/useNumberTokens";
 
 export const Wallet = () => {
   const { queryClient } = useQueryContract()
-  const {numTokens}= useNumberTokens()
+  const { numTokens } = useNumberTokens()
   const [keplrError, setKeplrError] = useState<boolean>(false)
-  
-  const onConnectKeplr = async ()=>{
-    if (!queryClient ) {
+
+  const onConnectKeplr = async () => {
+    if (!queryClient) {
       return;
     }
-    try{
-
-      keplrError&&setKeplrError(false)
-    await queryClient.connectKeplr()
-    const accounts = await queryClient.getAccounts()
-    if(accounts.length>0){
-      window.location.href = '/share?account='+accounts[0].address
-      // setAccountQueryParam(accounts[0].address)
-    }
-    }catch(e){
+    try {
+      keplrError && setKeplrError(false)
+      await queryClient.connectKeplr()
+      const accounts = await queryClient.getAccounts()
+      if (accounts.length > 0) {
+        window.location.href = '/share?account=' + accounts[0].address
+      }
+    } catch (e) {
       console.log(e)
       setKeplrError(true)
     }
@@ -34,11 +28,12 @@ export const Wallet = () => {
 
 
   return (
-    <Container >
+    <Container>
       <Row>
         <Col xs={6} xxl={1}>
-          <Button variant="outline-secondary" onClick={onConnectKeplr} disabled={numTokens===0||numTokens===undefined}>Connect Keplr</Button>
-          {(numTokens===0||numTokens===undefined) && <p>Disabled until Mint Day.</p>}
+          <Button variant="outline-primary" onClick={onConnectKeplr}
+                  disabled={numTokens === 0 || numTokens === undefined} style={{width:'150px'}}>Connect Keplr</Button>
+          {(numTokens === 0 || numTokens === undefined) && <p>Disabled until Mint Day.</p>}
           {keplrError && <p>Error connecting to Keplr. Is Keplr installed?</p>}
         </Col>
       </Row>

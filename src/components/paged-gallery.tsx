@@ -27,12 +27,15 @@ export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => 
   
   const pagesToRender = useMemo(() => {
     const pagesToRender = [];
-    const start = Math.max(1, page - 2);
-    const end = Math.min(lastPage, page + 2);
+    const start = Math.max(1, page - 3);
+    const end = Math.min(lastPage, page + 3);
     for (let i = start; i <= end; i++) {
       pagesToRender.push(i);
     }
-    return { ellipsisStart:start>1 && pagesToRender.length,ellipsisEnd:end<lastPage, pagesToRender };
+    const ellipsisStart=start>1&& pagesToRender.length
+    const ellipsisEnd=end<lastPage
+    
+    return { ellipsisStart,ellipsisEnd, pagesToRender };
   }, [page, lastPage]);
 
   const tokenIds = useMemo(() => {

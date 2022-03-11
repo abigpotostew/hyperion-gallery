@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useQueryContract } from "./useQueryContract";
+import config from "../config";
 
 export const useNumberTokens = () => {
   const [numTokens, setNumTokens] = useState<number | undefined>(undefined);
@@ -8,13 +9,16 @@ export const useNumberTokens = () => {
   useEffect(() => {
     if (!queryClient) return;
     (async () => {
-      if (Date.now() < 1646985600000) {
+      if (Date.now() < 1647027924000) {
         setNumTokens(0);
-        return
+        return;
       }
-      const num = await queryClient.getNumberTokensTotal()
-      setNumTokens(num)
-      // setNumTokens(1024)
+      if (config.soldOut) {
+        setNumTokens(config.totalNumMints)
+      } else {
+        const num = await queryClient.getNumberTokensTotal()
+        setNumTokens(num)
+      }
     })()
   }, [queryClient])
 
