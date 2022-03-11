@@ -33,6 +33,9 @@ export const Header = () => {
           </Nav>
           <Nav className="justify-content-end" >
             <Navbar.Text style={{padding:10}}>
+              <a href={'https://stargaze.zone'} target={'_blank'} rel="noreferrer">✨Mint on stargaze.zone✨</a>
+            </Navbar.Text>
+            <Navbar.Text style={{padding:10}}>
               <a href={'https://twitter.com/stewbracken'} target={'_blank'} rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-twitter"
                      viewBox="0 0 16 16">
