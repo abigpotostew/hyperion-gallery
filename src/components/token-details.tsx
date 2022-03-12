@@ -41,7 +41,7 @@ export const TokenDetails = ({ tokenId, numTokens }: { tokenId: string; numToken
           <a href={token.imageUrl4k} download={true}>
             Download 4K Render
           </a> |{" "}
-          <a href={token.live} target={'_blank'} rel="noreferrer">Live</a>
+          <a href={token.live} rel="noreferrer">Live</a>
         </div>
       </Col>
 

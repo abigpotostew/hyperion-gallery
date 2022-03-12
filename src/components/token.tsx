@@ -19,9 +19,10 @@ export const Token = ({tokenId}:{tokenId:string})=>{
 
   return (
     <Card className="text-center" border="light">
-      <Link href={{pathname:`/token`,query:{'id':encodeURIComponent(tokenId)} }  } as={`/token/?id=${encodeURIComponent(tokenId)}`}>
-        <a><Card.Img variant="top" src={token.thumbnail400} /></a>
-      </Link>
+      
+      {/*<Link href={{pathname:`/token`,query:{'id':encodeURIComponent(tokenId)} }  } as={`/token/?id=${encodeURIComponent(tokenId)}`}>*/}
+        <a href={`/token/?id=${encodeURIComponent(tokenId)}`}><Card.Img variant="top" src={token.thumbnail400} /></a>
+      {/*</Link>*/}
       <Card.Body>
         <Card.Title>#{tokenId}</Card.Title>
         <Card.Text>
