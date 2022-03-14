@@ -33,7 +33,7 @@ export const Header = () => {
           </Nav>
           <Nav className="justify-content-end" >
             <Navbar.Text style={{padding:10}}>
-              <a href={'https://stargaze.zone'} target={'_blank'} rel="noreferrer">✨Mint on stargaze.zone✨</a>
+              <a href={'https://app.stargaze.zone/launchpad/stars187zds75uenfxht2zqz7e0wxn3ushcawvf2ndrns6q63hgfn6ptqqt0ayra'} target={'_blank'} rel="noreferrer"> ✨  Sold Out  ✨ </a>
             </Navbar.Text>
             <Navbar.Text style={{padding:10}}>
               <a href={'https://twitter.com/stewbracken'} target={'_blank'} rel="noreferrer">

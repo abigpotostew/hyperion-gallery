@@ -37,7 +37,7 @@ const configBase = {
     // fileUrlMetadata: "https://files.endala.xyz/testnet/metadata",
     // fileUrlRarities: "https://files.endala.xyz/testnet/rarities",
     testnet: false,
-    soldOut: false,
+    soldOut: true,
   },
   useTestnet: false, // Set to false on production
 };
