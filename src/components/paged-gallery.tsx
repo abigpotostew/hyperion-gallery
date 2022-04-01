@@ -1,15 +1,34 @@
 import Container from "react-bootstrap/Container";
-import { Col, Pagination, Row } from "react-bootstrap";
-import { Token } from "./token";
+import { Col, Form, Pagination, Row } from "react-bootstrap";
 import { useQueryParam } from "../hooks/useQueryParam";
 import { useEffect, useMemo, useState } from "react";
 import { Gallery } from "./gallery";
+import analysis from "../utils/analysis.json";
 
 export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => {
   let [pageQp, setPageQp] = useQueryParam('page');
+  let [pageSort, setPageSort] = useQueryParam('sort');
   const [page, setPage] = useState<number>(1)
-  // const pageNum = parseInt(pageQp||'1')
+
+  const [orderByRankArray, setOrderByRankArray] = useState<string[]>([]);
+  
+  const setPageSortQp = (sortBy: string) => {
+    console.log('setting sort by', sortBy)
+    setPageSort(sortBy)
+  }
+
   const limit = 15;
+  useEffect(() => {
+    if (pageSort !== 'rank') {
+      return [];
+    }
+    const orderByRankArray: string[] = [];
+    analysis.all.map((score, i) => ({
+      score,
+      id: i
+    })).sort((a, b) => b.score - a.score).map(({ id }) => orderByRankArray.push(id));
+    setOrderByRankArray(orderByRankArray);
+  }, [pageSort])
 
   useEffect(() => {
     setPage(parseInt(pageQp || '1'))
@@ -24,7 +43,7 @@ export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => 
     return pages;
   }, [totalNumTokens]);
   const lastPage = pages.length > 0 ? pages[pages.length - 1] : 1;
-  
+
   const pagesToRender = useMemo(() => {
     const pagesToRender = [];
     const start = Math.max(1, page - 3);
@@ -32,10 +51,10 @@ export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => 
     for (let i = start; i <= end; i++) {
       pagesToRender.push(i);
     }
-    const ellipsisStart=start>1&& pagesToRender.length
-    const ellipsisEnd=end<lastPage
-    
-    return { ellipsisStart,ellipsisEnd, pagesToRender };
+    const ellipsisStart = start > 1 && pagesToRender.length
+    const ellipsisEnd = end < lastPage
+
+    return { ellipsisStart, ellipsisEnd, pagesToRender };
   }, [page, lastPage]);
 
   const tokenIds = useMemo(() => {
@@ -43,27 +62,37 @@ export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => 
     const from = (page - 1) * limit + 1;
     const to = Math.min(from + limit - 1, totalNumTokens);
     for (let i = from; i <= to; i++) {
-      tokenIds.push(i.toString());
+      if (pageSort === 'rank') {
+        //
+        tokenIds.push(orderByRankArray[i - 1]);
+      } else {
+        tokenIds.push(i.toString());
+      }
     }
     return tokenIds;
-  }, [lastPage, page]);
+  }, [pageSort, lastPage, page, orderByRankArray]);
 
   const changePage = (page: number) => {
     setPageQp(Math.max(pages[0], Math.min(page, pages[pages.length - 1])).toString());
     // update whatever
     window.scrollTo(0, 0);
-    console.log("scrolling")
   }
 
   return (
     <Container>
+      <Form>
+        <Form.Group className="mb-3" controlId="sortBy">
+          <Form.Check
+            type="switch"
+            id="sort-switch"
+            label="Sort by Rank"
+            checked={pageSort === 'rank'}
+            onClick={(e) => setPageSortQp(e.currentTarget.checked ? 'rank' : 'token')}
+          />
+        </Form.Group>
+      </Form>
       <Row>
-
-        {/*<Col />*/}
-        {/*<Col>*/}
         <Gallery tokenIds={tokenIds}/>
-        {/*</Col>*/}
-        {/*<Col />*/}
       </Row>
       <Row>
         <Col/>
@@ -87,16 +116,5 @@ export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => 
         <Col/>
       </Row>
     </Container>
-    // <Container >
-    //   {chunks.map((chunk, index) => (
-    //     <Row  key={index}>
-    //       {chunk.map((tokenId:string) => (
-    //         <Col xs={12} md={6} lg={4} key={tokenId}>
-    //           <Token tokenId={tokenId} />
-    //         </Col>
-    //       ))}
-    //     </Row>
-    //   ))}
-    // </Container>
   )
 }

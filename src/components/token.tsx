@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { Card } from "react-bootstrap";
+import config from "../config";
 
 export const tokenDetails = (tokenId:string)=>{
   return {
-    live: `https://live.hyperionnft.art/id/${tokenId}/`,
-    imageUrl: `https://ipfs.io/ipfs/bafybeigqwoubjsr3jmxby6kjktqu3siob5fe5s5hdjwirxf3q4czmfhs3y/${tokenId}.jpg`,
-    imageUrl4k: `https://hyperion-images-stargaze.s3.us-west-1.amazonaws.com/4k/${tokenId}.png`,
-    thumbnail: `https://hyperion-images-stargaze.s3.us-west-1.amazonaws.com/thumbs-300/${tokenId}.jpg`,
-    thumbnail400: `https://hyperion-images-stargaze.s3.us-west-1.amazonaws.com/thumbs-400/${tokenId}.jpg`,
-    metadata: `https://hyperion-images-stargaze.s3.us-west-1.amazonaws.com/metadata/${tokenId}.json`,
-    // metadata: `https://ipfs.io/ipfs/bafybeidnj2urojetktrmsw63gc55tu2vrrgyqiz4niyhqr2vpvex5bvy74/${tokenId}`,
+    live: `${config.liveViewUrl}/${tokenId}`,
+    imageUrl: `${config.fileUrlImage}/${tokenId}${config.fileUrlImage}`,
+    imageUrl4k: `${config.fileUrlHighResImage}/${tokenId}${config.fileUrlHighResImageExtension}`,
+    thumbnail: `${config.fileUrlThumbnails}/${tokenId}${config.fileUrlThumbnailsExtension}`,
+    metadata: `${config.fileUrlMetadata}/${tokenId}${config.fileUrlMetadataExtension}`,
   }
 }
 
@@ -21,7 +20,7 @@ export const Token = ({tokenId}:{tokenId:string})=>{
     <Card className="text-center" border="light">
       
       {/*<Link href={{pathname:`/token`,query:{'id':encodeURIComponent(tokenId)} }  } as={`/token/?id=${encodeURIComponent(tokenId)}`}>*/}
-        <a href={`/token/?id=${encodeURIComponent(tokenId)}`}><Card.Img variant="top" src={token.thumbnail400} /></a>
+        <a href={`/token/?id=${encodeURIComponent(tokenId)}`}><Card.Img variant="top" src={token.thumbnail} /></a>
       {/*</Link>*/}
       <Card.Body>
         <Card.Title>#{tokenId}</Card.Title>
