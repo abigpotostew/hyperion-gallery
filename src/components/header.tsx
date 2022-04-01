@@ -62,6 +62,6 @@ export const Header = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    < hr style={{ 'color': 'black', 'margin-top': '0' }}/>
+    < hr style={{ 'color': 'black', 'marginTop': 0 }}/>
   </>)
 }

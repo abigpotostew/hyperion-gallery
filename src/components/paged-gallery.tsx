@@ -20,13 +20,18 @@ export const PagedGallery = ({ totalNumTokens }: { totalNumTokens: number }) => 
   const limit = 15;
   useEffect(() => {
     if (pageSort !== 'rank') {
-      return [];
+       setOrderByRankArray([]);
+      return
     }
     const orderByRankArray: string[] = [];
     analysis.all.map((score, i) => ({
       score,
       id: i
-    })).sort((a, b) => b.score - a.score).map(({ id }) => orderByRankArray.push(id));
+    }))
+      // @ts-ignore
+      .sort((a, b) => b.score - a.score)
+      // @ts-ignore
+      .map(({ id }) => orderByRankArray.push(id));
     setOrderByRankArray(orderByRankArray);
   }, [pageSort])
 
